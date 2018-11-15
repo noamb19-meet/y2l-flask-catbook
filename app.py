@@ -2,7 +2,7 @@
 
 from flask import Flask
 from flask import render_template
-from database import get_all_cats
+from database import *
 
 app = Flask(__name__)
 
@@ -13,7 +13,8 @@ def catbook_home():
 
 @app.route('/cats/<int:id>')
 def catbook_profile(id):
-	return render_template("cat.html", name=cat.name)
+	cat = get_cat_by_id(id)
+	return render_template("cat.html", cat=cat)
 
 
 

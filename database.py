@@ -18,6 +18,6 @@ def get_all_cats():
     cats = session.query(Cat).all()
     return cats
 
-    def get_cat_by_id():
-    	cats=session.query(Cat).filter_by(id=id).first
-    	return cats
+def get_cat_by_id(id):
+	cat=session.query(Cat).filter_by(id=id).first()
+	return cat
