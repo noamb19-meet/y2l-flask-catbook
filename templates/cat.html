@@ -6,6 +6,10 @@
 </head>
 <body>	
 <p>"hello my name is {{cat.name}}"</p>
+<form action="/vote/{{cat.id}}" method="POST">
+	{{cat.vote}}
+    <input type="submit" value="Vote">
+	</form>
 
 </body>
 </html>

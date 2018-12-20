@@ -10,9 +10,10 @@ session = DBSession()
 
 
 def create_cat(name):
-    cat_object = Cat(name=name)
+    cat_object = Cat(name=name,vote=0)
     session.add(cat_object)
     session.commit()
+    return cat_object
 
 def get_all_cats():
     cats = session.query(Cat).all()
@@ -21,3 +22,12 @@ def get_all_cats():
 def get_cat_by_id(id):
 	cat=session.query(Cat).filter_by(id=id).first()
 	return cat
+
+def vote(id):
+    cat = session.query(Cat).filter_by(id=id).first()
+    if cat.vote == None:
+        cat.vote=1
+    else:
+        cat.vote+=1
+
+
